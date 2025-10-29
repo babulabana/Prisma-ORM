@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id             Int            @id @default(autoincrement())
+  email          String         @unique
+  name           String?
+  user_detail_id Int?           @unique
+  user_detail    users_details? @relation(fields: [user_detail_id], references: [id])
+  // 👇 one user can have many instagram accounts
+  instagram      instagrams[]
+}
+
+model users_details {
+  id       Int     @id @default(autoincrement())
+  phone_no String?
+  age      Int?
+  user     users?
+}
+
+model instagrams {
+  id        Int    @id @default(autoincrement())
+  user_name String
+  followers Int?
+  user_id   Int
+
+  
+  // 👇 each instagram account belongs to one user
+  user     users  @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
