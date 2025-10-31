@@ -1,4 +1,10 @@
-import { IsEmail, IsOptional, IsString, ValidateNested, IsInt } from 'class-validator';
+import {
+  IsEmail,
+  IsOptional,
+  IsString,
+  ValidateNested,
+  IsInt,
+} from 'class-validator';
 import { Type } from 'class-transformer';
 import { CreateUserDetailDto } from '../../user-detail/dto/create-user-detail.dto';
 

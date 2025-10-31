@@ -1,0 +1,7 @@
+model InstagramPost {
+  id           Int       @id @default(autoincrement())
+  caption      String?
+  instagram_id Int
+  instagram    Instagram @relation(fields: [instagram_id], references: [id], onDelete: Cascade)
+ @@map("instagram_posts")
+}

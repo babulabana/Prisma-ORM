@@ -1,0 +1,9 @@
+model Student {
+  id        Int    @id @default(autoincrement())
+  name      String
+  age       Int
+  address   String
+  file   String?   // store file path or URL
+
+  @@map("students")
+}

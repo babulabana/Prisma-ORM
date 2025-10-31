@@ -1,0 +1,7 @@
+model UserDetail {
+  id       Int     @id @default(autoincrement())
+  phone_no String?
+  age      Int?
+  user     User?
+    @@map("user_details") // 👈 Database table name = "user_details"
+}

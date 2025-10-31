@@ -1,0 +1,10 @@
+model User {
+  id             Int         @id @default(autoincrement())
+  email          String      @unique
+  name           String?
+  user_detail_id Int?        @unique
+  user_detail    UserDetail? @relation(fields: [user_detail_id], references: [id])
+  instagram      Instagram[]
+  
+    @@map("users") // 👈 Database table name = "user"
+}

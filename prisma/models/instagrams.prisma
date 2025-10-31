@@ -1,0 +1,9 @@
+model Instagram {
+  id        Int             @id @default(autoincrement())
+  user_name String
+  followers Int?
+  user_id   Int
+  user      User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  posts     InstagramPost[]
+   @@map("instagrams")
+}
